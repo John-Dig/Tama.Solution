@@ -74,7 +74,7 @@ namespace Tama.Tests
       
       //act
       Pet newPet = new Pet(content,rested,fed);
-      Pet.Timer();
+      newPet.Timer();
 
       //assert
       Assert.IsTrue(newPet.Content == newPet.Rested && newPet.Rested == newPet.Fed && newPet.Fed == 49);

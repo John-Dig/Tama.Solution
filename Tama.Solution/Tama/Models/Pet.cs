@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Threading;
 namespace Tama.Models
 {
   public class Pet
