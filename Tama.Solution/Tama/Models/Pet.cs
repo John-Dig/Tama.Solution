@@ -20,6 +20,10 @@ namespace Tama.Models
       this.Content+=10;
     }
 
+    public void Feed()
+    {
+      this.Fed+=10;
+    }
   }
 
 }
