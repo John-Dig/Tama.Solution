@@ -64,6 +64,22 @@ namespace Tama.Tests
       Assert.AreEqual(60, newPet.Rested);
     }
 
+    [TestMethod] //5
+    public void Timer_Removes1PointFromEachPropertyForEachPeriod_Timer()
+    {
+      //arrange 
+      int content = 50;
+      int rested = 50;
+      int fed = 50;
+      
+      //act
+      Pet newPet = new Pet(content,rested,fed);
+      Pet.Timer();
+
+      //assert
+      Assert.IsTrue(newPet.Content == newPet.Rested && newPet.Rested == newPet.Fed && newPet.Fed == 49);
+
+    }
 
 
   }
