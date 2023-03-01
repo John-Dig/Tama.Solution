@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace Tama.Controllers
 {
-  public class ItemsController : Controller
+  public class PetsController : Controller
   {
-    [HttpGet("/items")]
-    public ActionResult Index()
-    {
-      List<Item> allItems = Item.GetAll();
-      return View(allItems);
-    }
+    // [HttpGet("/Pets")]
+    // public ActionResult Index()
+    // {
+    //   List<Pet> allPets = Pet.GetAll();
+    //   return View(allPets);
+    // }
   }
 }

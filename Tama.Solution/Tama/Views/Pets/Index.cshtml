@@ -9,25 +9,25 @@
 </head>
 
 <body>
-  @using ToDoList.Models;
+  @* @using Tama.Models;
 
   <h1>To Do List</h1>
   @if (Model.Count == 0)
   {
-    <p> There are no items in the list</p>
+    <p> There are no Pets in the list</p>
   }
   <ul>
-    @foreach (Item item in Model)
+    @foreach (Pet Pet in Model)
     {
-     <li><a href='/items/@item.Id'>@item.Description</a></li>
+     <li><a href='/Pets/@Pet.Id'>@Pet.Description</a></li>
     }
 
   </ul>
-  <a href="/items/new">Add a new item.</a>
+  <a href="/Pets/new">Add a new Pet.</a>
 
-  <form action="/items/delete" method="post">
-    <button type="submit" name="button">Clear All Items</button>
-  </form>
+  <form action="/Pets/delete" method="post">
+    <button type="submit" name="button">Clear All Pets</button>
+  </form> *@
 </body>
 
 </html>
