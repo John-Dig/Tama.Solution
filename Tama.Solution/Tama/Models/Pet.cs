@@ -14,6 +14,12 @@ namespace Tama.Models
       Rested = rested;
       Fed = fed;
     }
+
+    public void Play()
+    {
+      this.Content+=10;
+    }
+
   }
 
 }

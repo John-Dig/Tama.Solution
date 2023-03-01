@@ -9,12 +9,31 @@ namespace Tama.Tests
   public class PetTests
   {
 
-    [TestMethod]
+    [TestMethod] //1
     public void PetConstructor_CreatesInstanceOfPet_Pet()
     {
-      Pet newPet = new Pet(100, 100, 100);
+      Pet newPet = new Pet(50, 50, 50);
       Assert.AreEqual(typeof(Pet), newPet.GetType());
     }
+
+    [TestMethod] //2
+    public void PetPlay_Adds10ContentmentToMuffin_Int()
+    {
+      //arrange 
+      int content = 50;
+      int rested = 50;
+      int fed = 50;
+      
+      //act
+      Pet newPet = new Pet(content,rested,fed);
+      newPet.Play();
+      
+      //assert
+      Assert.AreEqual(60, newPet.Content);
+    }
+
+  
+
 
 
   }
