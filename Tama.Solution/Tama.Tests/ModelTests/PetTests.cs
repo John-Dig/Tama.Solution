@@ -48,6 +48,22 @@ namespace Tama.Tests
       Assert.AreEqual(60, newPet.Fed);
     }
 
+    [TestMethod] //4
+    public void PetSleep_Adds10RestedToMuffin_Int()
+    {
+      //arrange 
+      int content = 50;
+      int rested = 50;
+      int fed = 50;
+      
+      //act
+      Pet newPet = new Pet(content,rested,fed);
+      newPet.Sleep();
+      
+      //assert
+      Assert.AreEqual(60, newPet.Rested);
+    }
+
 
 
   }

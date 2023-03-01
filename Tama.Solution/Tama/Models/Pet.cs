@@ -24,6 +24,11 @@ namespace Tama.Models
     {
       this.Fed+=10;
     }
+
+    public void Sleep()
+    {
+      this.Rested+=10;
+    }
   }
 
 }
