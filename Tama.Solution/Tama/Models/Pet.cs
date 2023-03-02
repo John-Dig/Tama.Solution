@@ -30,31 +30,14 @@ namespace Tama.Models
       this.Rested += 10;
     }
 
-    public void Timer()
+    public void DockPoints()
     {
       this.Content -= 1;
       this.Rested -= 1;
       this.Fed -= 1;
     }
+
+
+    
   }
-}
-
-using System;
-using System.Threading;
-
-class Program {
-    static void Main(string[] args) {
-        Timer timer = new Timer(MyCallback, null, TimeSpan.Zero, Timeout.InfiniteTimeSpan);
-
-        // Wait for the timer to finish
-        Console.ReadLine();
-    }
-
-    static void MyCallback(object state) {
-        Console.WriteLine("Timer callback executed at {0}", DateTime.Now);
-
-        // Restart the timer
-        Timer timer = (Timer) state;
-        timer.Change(TimeSpan.FromSeconds(5), Timeout.InfiniteTimeSpan);
-    }
 }

@@ -1,7 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Tama.Models;
-using System;
+using System.Timers;
+using Stystem;
 
 namespace Tama.Tests
 {
@@ -23,11 +24,11 @@ namespace Tama.Tests
       int content = 50;
       int rested = 50;
       int fed = 50;
-      
+
       //act
-      Pet newPet = new Pet(content,rested,fed);
+      Pet newPet = new Pet(content, rested, fed);
       newPet.Play();
-      
+
       //assert
       Assert.AreEqual(60, newPet.Content);
     }
@@ -39,11 +40,11 @@ namespace Tama.Tests
       int content = 50;
       int rested = 50;
       int fed = 50;
-      
+
       //act
-      Pet newPet = new Pet(content,rested,fed);
+      Pet newPet = new Pet(content, rested, fed);
       newPet.Feed();
-      
+
       //assert
       Assert.AreEqual(60, newPet.Fed);
     }
@@ -55,31 +56,58 @@ namespace Tama.Tests
       int content = 50;
       int rested = 50;
       int fed = 50;
-      
+
       //act
-      Pet newPet = new Pet(content,rested,fed);
+      Pet newPet = new Pet(content, rested, fed);
       newPet.Sleep();
-      
+
       //assert
       Assert.AreEqual(60, newPet.Rested);
     }
 
     [TestMethod] //5
-    public void Timer_Removes1PointFromEachPropertyForEachPeriod_Timer()
+    public void DockPoints_Removes1PointFromEachPropertyForEachPeriod_DockPoints()
     {
       //arrange 
       int content = 50;
       int rested = 50;
       int fed = 50;
-      
+
       //act
-      Pet newPet = new Pet(content,rested,fed);
-      newPet.Timer();
+      Pet newPet = new Pet(content, rested, fed);
+      newPet.DockPoints();
 
       //assert
       Assert.IsTrue(newPet.Content == newPet.Rested && newPet.Rested == newPet.Fed && newPet.Fed == 49);
 
+
     }
+
+    [TestMethod] //5
+    public void TimerWorks_Time()
+    {
+      //arrange 
+      int content = 50;
+      int rested = 50;
+      int fed = 50;
+
+      //act
+      Pet newPet = new Pet(content, rested, fed);
+    
+      Timer timer = new Timer(5000);
+      timer.Elapsed += newPet.DockPoints();
+      timer.AutoReset = true;
+      timer.Enabled = true;
+
+
+      //assert
+      Assert.IsTrue(newPet.Content == newPet.Rested && newPet.Rested == newPet.Fed && newPet.Fed == 49);
+
+
+    }
+
+
+
 
 
   }
