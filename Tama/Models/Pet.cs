@@ -1,9 +1,10 @@
 using System.Collections.Generic;
-using System.Threading;
+using System.Timers;
 namespace Tama.Models
 {
   public class Pet
   {
+    public static Timer _timer;
     public int Content { get; set; }
     public int Rested { get; set; }
     public int Fed { get; set; }
@@ -30,13 +31,23 @@ namespace Tama.Models
       this.Rested += 10;
     }
 
-    public void DockPoints()
+    public void DockPoints(Object source, System.Timers.ElapsedEventArgs e)
     {
       this.Content -= 1;
       this.Rested -= 1;
       this.Fed -= 1;
+      if (this.Content < 0 ) {this.Content = 0;} 
+      if (this.Rested < 0) {this.Rested = 0; }
+      if (this.Fed < 0) {this.Fed = 0; }
     }
-
+    public void StartTimer()
+    {
+      _timer = new Timer();
+      _timer.Interval = 5000;
+      _timer.Elapsed += DockPoints;
+      _timer.AutoReset = true;
+      _timer.Enabled = true;
+    }
 
     
   }

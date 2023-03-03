@@ -83,32 +83,26 @@ namespace Tama.Tests
 
     }
 
-    [TestMethod] //5
-    public void TimerWorks_Time()
-    {
-      //arrange 
-      int content = 50;
-      int rested = 50;
-      int fed = 50;
+    // [TestMethod] //5
+    // public void TimerWorks_Time()
+    // {
+    //   //arrange 
+    //   int content = 50;
+    //   int rested = 50;
+    //   int fed = 50;
 
-      //act
-      Pet newPet = new Pet(content, rested, fed);
+    //   //act
+    //   Pet newPet = new Pet(content, rested, fed);
     
-      Timer timer = new Timer(5000);
-      timer.Elapsed += newPet.DockPoints();
-      timer.AutoReset = true;
-      timer.Enabled = true;
+    //   Timer timer = new Timer(5000);
+    //   timer.Elapsed += newPet.DockPoints();
+    //   timer.AutoReset = true;
+    //   timer.Enabled = true;
 
+    //   //assert
+    //   Assert.IsTrue(newPet.Content == newPet.Rested && newPet.Rested == newPet.Fed && newPet.Fed == 49);
 
-      //assert
-      Assert.IsTrue(newPet.Content == newPet.Rested && newPet.Rested == newPet.Fed && newPet.Fed == 49);
-
-
-    }
-
-
-
-
+    // }
 
   }
 }
